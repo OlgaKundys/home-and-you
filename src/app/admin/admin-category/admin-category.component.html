@@ -1,1 +1,52 @@
-<p>admin-category works!</p>
+<div class="container">
+  <button type="button" data-bs-toggle="modal" data-bs-target="#addCategory" class="btn btn-danger addCategory">Add
+    category</button>
+
+  <!-- modal to add or update category -->
+  <div class="modal fade" id="addCategory" tabindex="-1" aria-labelledby="addCategoryLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form [formGroup]="categoryForm" class="modal-content" (ngSubmit)="saveCategory()">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addCategoryLabel">Category information</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="categoryName" class="form-label">Category name</label>
+            <input type="text" class="form-control" id="categoryName" placeholder="add category name here"
+              formControlName="categoryName">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button data-bs-dismiss="modal" type="button" class="btn btn-secondary" #close>Cancel</button>
+          <button type="submit" class="btn btn-success" [disabled]="categoryForm.invalid">Save category</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <table class="table align-middle">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Category name</th>
+        <th scope="col" colspan="2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of adminCategories; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.categoryName }}</td>
+        <td>
+          <button type="button" class="btn btn-outline-danger actionCategory" data-bs-toggle="modal"
+            data-bs-target="#addCategory" (click)="editCategory(item)">Edit</button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-outline-danger actionCategory"
+            (click)="deleteCategory(item)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

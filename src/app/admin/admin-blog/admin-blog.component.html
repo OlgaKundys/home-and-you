@@ -1,0 +1,86 @@
+<div class="container">
+  <button type="button" data-bs-toggle="modal" data-bs-target="#addBlog" class="btn btn-danger addBlog">Add
+    blog</button>
+
+  <!-- modal to add or update blog -->
+  <div class="modal fade" id="addBlog" tabindex="-1" aria-labelledby="addBlogLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form [formGroup]="blogForm" class="modal-content" (ngSubmit)="saveBlog()">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addBlogLabel">Blog information</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="blogTitle" class="form-label">Blog title</label>
+            <input type="text" class="form-control" id="blogTitle" placeholder="add blog title here"
+              formControlName="blogTitle">
+          </div>
+          <div class="mb-3">
+            <label for="blogImage" class="form-label" [hidden]="true">Blog image</label>
+            <input type="text" class="form-control" id="blogImage" placeholder="upload blog image"
+              formControlName="blogImage" [hidden]="true">
+            <input *ngIf="!imgIsUploaded" type="file" (change)="upload($event)">
+            <ng-container *ngIf="imgIsUploaded">
+              <img [src]="controlValue('blogImage')" alt="" width="50px">
+              <button type="button" class="btn btn-secondary ms-3" (click)="deleteImg()">Delete image</button>
+            </ng-container>
+          </div>
+          <div class="mb-3">
+            <label for="publicationDate" class="form-label">Publication date</label>
+            <input type="text" class="form-control" id="publicationDate" placeholder="add publication date here"
+              formControlName="publicationDate">
+          </div>
+          <div class="mb-3">
+            <label for="blogCategory" class="form-label">Blog category</label>
+            <input type="text" class="form-control" id="blogCategory" placeholder="add blog category here"
+              formControlName="blogCategory">
+          </div>
+          <div class="mb-3">
+            <label for="blogText" class="form-label">Blog text</label>
+            <textarea class="form-control" id="blogText" placeholder="add blog text here" formControlName="blogText"
+              cols="30" rows="10"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button data-bs-dismiss="modal" type="button" class="btn btn-secondary" #close>Cancel</button>
+          <button type="submit" class="btn btn-success" [disabled]="blogForm.invalid">Save blog</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <table class="table align-middle">
+    <thead class="align-top">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Image</th>
+        <th scope="col">Publication date</th>
+        <th scope="col">Related category</th>
+        <th scope="col">Blog text</th>
+        <th scope="col" colspan="2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of adminBlog; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.blogTitle }}</td>
+        <td>
+          <img [src]="item.blogImage" alt="" width="50px">
+        </td>
+        <td>{{ item.publicationDate }}</td>
+        <td>{{ item.blogCategory }}</td>
+        <td>{{ item.blogText }}</td>
+        <td>
+          <button type="button" class="btn btn-outline-danger actionBlog" data-bs-toggle="modal"
+            data-bs-target="#addBlog" (click)="editBlog(item)">Edit</button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-outline-danger actionBlog" (click)="deleteBlog(item)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

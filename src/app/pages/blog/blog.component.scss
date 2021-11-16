@@ -1,0 +1,41 @@
+@import url('../../shared/styles/_fonts.scss');
+
+.card {
+    border: none;
+    margin-bottom: 20px;
+}
+
+.blog {
+    font-family: 'Montserrat-700',Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.blog-title {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    color: #bb0029;
+    margin-top: 16px;
+}
+
+.text-bold {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    color: #333333;
+}
+
+.text-normal {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    text-align: left;
+    color: #333333;
+    margin-top: 16px;
+}

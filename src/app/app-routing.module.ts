@@ -12,20 +12,31 @@ import { AdminCategoryComponent } from './admin/admin-category/admin-category.co
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminSaleComponent } from './admin/admin-sale/admin-sale.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { ProfileDetailsComponent } from './pages/profile-details/profile-details.component';
+import { ProfileGuard } from './shared/guards/profile.guard';
+import { SigninComponent } from './pages/signin/signin.component';
+import { BlogComponent } from './pages/blog/blog.component';
+import { AdminBlogComponent } from './admin/admin-blog/admin-blog.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'products/:category', component: ProductsComponent },
-  { path: 'products/:category/:name', component: ProductsInfoComponent },
+  { path: 'products/:category/:id', component: ProductsInfoComponent },
+  { path: 'products-info/:id', component: ProductsInfoComponent },
   { path: 'sale', component: SaleComponent },
+  { path: 'blog', component: BlogComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'signin', component: SigninComponent },
+  { path: 'profile-details', component: ProfileDetailsComponent, canActivate: [ProfileGuard] },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'admin', component: AdminComponent, children: [
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], children: [
     { path: '', pathMatch: 'full', redirectTo: 'admin-category' },
     { path: 'admin-category', component: AdminCategoryComponent },
     { path: 'admin-products', component: AdminProductsComponent },
     { path: 'admin-sale', component: AdminSaleComponent },
-    { path: 'admin-orders', component: AdminOrdersComponent }
+    { path: 'admin-orders', component: AdminOrdersComponent },
+    { path: 'admin-blog', component: AdminBlogComponent }
   ] },
 ];
 

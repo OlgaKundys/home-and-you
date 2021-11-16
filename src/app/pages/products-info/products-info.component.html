@@ -1,1 +1,146 @@
-<p>products-info works!</p>
+<div class="container" style="margin-top: 20px;">
+  <div class="row">
+    <div class="col-6">
+      <div class="container">
+        <img src="{{ currentProductInfo?.productImage }}">
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="container">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td colspan="2">
+                <h2 class="product-title">{{ currentProductInfo?.productName }}</h2>
+                <p class="product-price">{{ currentProductInfo?.price * currentProductInfo?.count }} PLN</p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <div class="row">
+                  <div class="col d-flex justify-content-around">
+                    <button type="button" class="plus-minus" (click)="changeCount(currentProductInfo, false)">-</button>
+                    <input class="quantity" type="text" readonly [value]="currentProductInfo?.count">
+                    <button type="button" class="plus-minus" (click)="changeCount(currentProductInfo, true)">+</button>
+                  </div>
+                  <div class="col d-flex justify-content-evenly">
+                    <button class="add-cart" (click)="addToCart(currentProductInfo)">ADD TO CART</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+            <tr style="border-bottom: transparent;">
+              <td>
+                <span class="q">Brand</span> <br>
+                <span class="a">{{ currentProductInfo?.brand }}</span>
+              </td>
+              <td>
+                <span class="q">Color</span> <br>
+                <span class="a">{{ currentProductInfo?.color }}</span>
+              </td>
+            </tr>
+            <tr style="border-bottom: transparent;">
+              <td>
+                <span class="q">Material</span> <br>
+                <span class="a">{{ currentProductInfo?.material }}</span>
+              </td>
+              <td>
+                <span class="q">Length</span> <br>
+                <span class="a">{{ currentProductInfo?.length }}</span>
+              </td>
+            </tr>
+            <tr style="border-bottom: transparent;">
+              <td>
+                <span class="q">Width</span> <br>
+                <span class="a">{{ currentProductInfo?.width }}</span>
+              </td>
+              <td>
+                <span class="q">Height</span> <br>
+                <span class="a">{{ currentProductInfo?.height }}</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="q">Category</span> <br>
+                <span class="a">{{ currentProductInfo?.category?.categoryName }}</span>
+              </td>
+              <td>
+                <span class="q">Subcategory</span> <br>
+                <span class="a">{{ currentProductInfo?.subcategory }}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- shipping info -->
+        <table class="table-responsive" style="margin-top: 80px;">
+          <tbody class="text-center">
+            <tr style="border-bottom: transparent;">
+              <td class="align-top" style="width: 30%;">
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#a1a1a1" class="bi bi-truck"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                  </svg></p>
+              </td>
+              <td class="align-top" style="width: 30%;">
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#a1a1a1" class="bi bi-box-seam"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z" />
+                  </svg></p>
+              </td>
+              <td class="align-top" style="width: 30%;">
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#a1a1a1" class="bi bi-cash-coin"
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0z" />
+                    <path
+                      d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1h-.003zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195l.054.012z" />
+                    <path
+                      d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083c.058-.344.145-.678.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1H1z" />
+                    <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 5.982 5.982 0 0 1 3.13-1.567z" /></svg></p>
+              </td>
+            </tr>
+            <tr style="border-bottom: transparent;">
+              <td class="align-top" style="width: 30%;">
+                <p class="shipping">shipping</p>
+              </td>
+              <td class="align-top" style="width: 30%;">
+                <p class="shipping">delivery</p>
+              </td>
+              <td class="align-top" style="width: 30%;">
+                <p class="shipping">payment</p>
+              </td>
+            </tr>
+            <tr style="border-bottom: transparent;">
+              <td class="align-top" style="width: 30%;">
+                <p class="conditions">3 working days</p>
+                <p class="additional-conditions">(only in Poland)</p>
+              </td>
+              <td class="align-top" style="width: 30%;">
+                <p class="conditions">15,00 PLN</p>
+                <p class="additional-conditions">(free from 50 PLN)</p>
+              </td>
+              <td class="align-top" style="width: 30%;">
+                <p class="conditions">online / cash on delivery</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- return button -->
+        <div class="d-flex justify-content-center">
+          <a class="btn btn-secondary align-self-center return" (click)="locationBack.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+            </svg> Return
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4 welcomeMes">
+            <h5>Login to your account:</h5>
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="mb-3">
+                  <label for="yourEmail" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="yourEmail" formControlName="yourEmail">
+                </div>
+                <div class="mb-3">
+                  <label for="yourPassword" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="yourPassword" formControlName="yourPassword">
+                </div>
+                <button type="submit" class="btn btn-outline-danger">Login</button>
+            </form>
+        </div>
+        <div class="col-4 welcomeMes">
+            <h5>Create an account:</h5>
+            <form [formGroup]="signInForm" (ngSubmit)="register()">
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="email" formControlName="email">
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" formControlName="password">
+                </div>
+                <button type="submit" class="btn btn-outline-danger">Sign up</button>
+            </form>
+        </div>
+    </div>
+</div>

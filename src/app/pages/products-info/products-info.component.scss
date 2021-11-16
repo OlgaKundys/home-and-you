@@ -1,0 +1,104 @@
+@import url('../../shared/styles/_fonts.scss');
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.product-title {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.product-price {
+    font-family: 'Montserrat-700',Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    color: #000;
+}
+
+span {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #000;
+}
+
+.q {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #000;
+}
+
+.a {
+    font-family: 'Montserrat-700',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #333;
+}
+
+.plus-minus {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+    background-color: #a1a1a1;
+    color: #fff;
+    border: none;
+}
+
+.quantity {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #a1a1a1;
+    text-align: center;
+}
+
+.add-cart {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 150px;
+    height: 40px;
+    background-color: #bb0029;
+    color: #fff;
+    border: none;
+}
+
+.shipping {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #333;
+}
+
+.conditions {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #333;
+}
+
+.additional-conditions {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #939598;
+}
+
+.store-locator {
+    text-decoration: none;
+    color: #333;
+}
+
+.store-locator:hover {
+    color: #bb0029;
+    font-weight: bold;
+}
+
+.return {
+    margin-top: 50px;
+    background-color: #a1a1a1;
+    border: none;
+}

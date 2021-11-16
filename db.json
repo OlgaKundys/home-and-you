@@ -1,0 +1,142 @@
+{
+  "products": [
+    {
+      "category": {
+        "categoryName": "bathroom",
+        "id": "_1ITbm1"
+      },
+      "subcategory": "towels",
+      "productName": "towel set 30x50 cm moderndeer",
+      "productImage": "https://firebasestorage.googleapis.com/v0/b/home-and-you.appspot.com/o/images%2Ftowel-set.jpg.jpg?alt=media&token=41fdf19d-87a5-41e0-89b7-8eaa42251594",
+      "price": "39",
+      "sale": "yes",
+      "brand": "home&you",
+      "color": "gray",
+      "material": "cotton",
+      "length": "50 cm",
+      "width": "30 cm",
+      "height": "n/a",
+      "count": "1",
+      "id": "ii3u4-k"
+    },
+    {
+      "category": {
+        "categoryName": "dining-room",
+        "id": "0kNwmt1"
+      },
+      "subcategory": "plates",
+      "productName": "plates set snowflavour",
+      "productImage": "https://firebasestorage.googleapis.com/v0/b/home-and-you.appspot.com/o/images%2Fstar-plates-set.jpg.jpg?alt=media&token=1e9dcb4e-c9f9-475d-ba97-245c2d7ea2bf",
+      "price": "99",
+      "sale": "yes",
+      "brand": "home&you",
+      "color": "multicolor",
+      "material": "glass",
+      "length": "28 cm",
+      "width": "28 cm",
+      "height": "4 cm",
+      "count": "1",
+      "id": "_bcQh3j"
+    },
+    {
+      "category": {
+        "categoryName": "living-room",
+        "id": "IYUCbOm"
+      },
+      "subcategory": "lights",
+      "productName": "light curtain shila",
+      "productImage": "https://firebasestorage.googleapis.com/v0/b/home-and-you.appspot.com/o/images%2Flights-small.jpg.jpg?alt=media&token=61838009-e4bd-4412-95be-42be33d248df",
+      "price": "139",
+      "sale": "yes",
+      "brand": "home&you",
+      "color": "transparent",
+      "material": "plastic",
+      "length": "6 m",
+      "width": "3 cm",
+      "height": "n/a",
+      "count": "1",
+      "id": "PXHkRtD"
+    }
+  ],
+  "category": [
+    {
+      "categoryName": "bedroom",
+      "id": "EYlBqzh"
+    },
+    {
+      "categoryName": "living-room",
+      "id": "IYUCbOm"
+    },
+    {
+      "categoryName": "bathroom",
+      "id": "_1ITbm1"
+    },
+    {
+      "categoryName": "kitchen",
+      "id": "bzbcaaf"
+    },
+    {
+      "categoryName": "dining-room",
+      "id": "0kNwmt1"
+    },
+    {
+      "categoryName": "accessories",
+      "id": "pMtzAUs"
+    }
+  ],
+  "orders": [
+    {
+      "firstName": "Anna",
+      "lastName": "Pavlova",
+      "email": "anna@gmail.com",
+      "phone": "0971234567",
+      "address": "Street, 1",
+      "zipCode": "79000",
+      "city": "Lviv",
+      "orderStatus": "In progress",
+      "cart": [
+        {
+          "category": {
+            "categoryName": "bathroom",
+            "id": "_1ITbm1"
+          },
+          "subcategory": "towels",
+          "productName": "towel set 30x50 cm moderndeer",
+          "productImage": "https://firebasestorage.googleapis.com/v0/b/home-and-you.appspot.com/o/images%2Ftowel-set.jpg.jpg?alt=media&token=41fdf19d-87a5-41e0-89b7-8eaa42251594",
+          "price": "39",
+          "sale": "yes",
+          "brand": "home&you",
+          "color": "gray",
+          "material": "cotton",
+          "length": "50 cm",
+          "width": "30 cm",
+          "height": "n/a",
+          "count": 2,
+          "id": "ii3u4-k"
+        },
+        {
+          "category": {
+            "categoryName": "living-room",
+            "id": "IYUCbOm"
+          },
+          "subcategory": "lights",
+          "productName": "light curtain shila",
+          "productImage": "https://firebasestorage.googleapis.com/v0/b/home-and-you.appspot.com/o/images%2Flights-small.jpg.jpg?alt=media&token=61838009-e4bd-4412-95be-42be33d248df",
+          "price": "139",
+          "sale": "yes",
+          "brand": "home&you",
+          "color": "transparent",
+          "material": "plastic",
+          "length": "6 m",
+          "width": "3 cm",
+          "height": "n/a",
+          "count": "1",
+          "id": "PXHkRtD"
+        }
+      ],
+      "totalPrice": 217,
+      "status": "In progress",
+      "id": 1
+    }
+  ]
+}

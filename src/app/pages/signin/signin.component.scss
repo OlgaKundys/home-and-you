@@ -1,0 +1,35 @@
+@import url('../../shared/styles/_fonts.scss');
+
+.container {
+    margin-top: 20px;
+}
+
+input {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #333;
+}
+
+input::placeholder {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #333;
+}
+
+button {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    outline-color: #bb0029;
+}
+
+.welcomeMes {
+    margin: 20px auto 20px;
+}
+
+h5 {
+    font-family: 'Montserrat-700',Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #333333;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}

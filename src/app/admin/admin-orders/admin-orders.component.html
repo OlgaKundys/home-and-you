@@ -1,1 +1,58 @@
-<p>admin-orders works!</p>
+<div class="container">
+  <table class="table align-middle">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Address</th>
+        <!-- <th scope="col">Order details</th> -->
+        <th scope="col">Total price</th>
+        <th scope="col">Status</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of adminOrders; index as i">
+        <td>{{ i + 1 }}</td>
+        <td><span>{{ item.firstName }} </span><span>{{ item.lastName }}</span></td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.phone }}</td>
+        <td><span>{{ item.address }} </span><span>{{ item.zipCode }} </span><span>{{ item.city }}</span></td>
+        <!-- <td>
+              <button type="button" class="btn btn-outline-danger actionProduct">Products</button>
+            </td> -->
+        <td><span>{{ item.totalPrice }}</span><span> PLN</span></td>
+        <td>{{ item.orderStatus }}</td>
+        <td>
+          <button type="button" data-bs-toggle="modal" data-bs-target="#editOrder"
+            class="btn btn-outline-danger actionProduct" (click)="editOrderStatus(item)">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- modal to edit order -->
+<div class="modal fade" id="editOrder" tabindex="-1" aria-labelledby="editOrderLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form [formGroup]="orderForm" class="modal-content" (ngSubmit)="editOrder()">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editOrderLabel">Edit order</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="orderStatus" class="form-label">Change order status</label>
+          <input type="text" class="form-control" id="orderStatus" placeholder="add new order status here"
+            formControlName="orderStatus">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button data-bs-dismiss="modal" type="button" class="btn btn-secondary" #close>Cancel</button>
+        <button type="submit" class="btn btn-success">Save order</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,1 +1,136 @@
-<p>admin-products works!</p>
+<div class="container">
+  <button type="button" data-bs-toggle="modal" data-bs-target="#addProduct" class="btn btn-danger addProduct">Add
+    product</button>
+
+  <!-- modal to add or update product -->
+  <div class="modal fade" id="addProduct" tabindex="-1" aria-labelledby="addProductLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form [formGroup]="productForm" class="modal-content" (ngSubmit)="saveProduct()">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addProductLabel">Product information</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="productName" class="form-label">Product name</label>
+            <input type="text" class="form-control" id="productName" placeholder="add product name here"
+              formControlName="productName">
+          </div>
+          <div class="mb-3">
+            <label for="productImage" class="form-label" [hidden]="true">Product image</label>
+            <input type="text" class="form-control" id="productImage" placeholder="upload product image"
+              formControlName="productImage" [hidden]="true">
+            <input *ngIf="!isUploaded" type="file" (change)="upload($event)">
+            <ng-container *ngIf="isUploaded">
+              <img [src]="controlValue('productImage')" alt="" width="50px">
+              <button type="button" class="btn btn-secondary ms-3" (click)="deleteImage()">Delete image</button>
+            </ng-container>
+          </div>
+          <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="text" class="form-control" id="price" placeholder="add product price here"
+              formControlName="price">
+          </div>
+          <div class="mb-3">
+            <label for="sale" class="form-label">Sale</label>
+            <input type="text" class="form-control" id="sale" placeholder="is this product on sale?"
+              formControlName="sale">
+          </div>
+          <div class="mb-3">
+            <label for="category" class="form-label">Category</label>
+            <select formControlName="category">
+              <option [ngValue]="category" *ngFor="let category of adminCategories">{{ category.categoryName }}</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="subcategory" class="form-label">Subcategory</label>
+            <input type="text" class="form-control" id="subcategory" placeholder="add subcategory here"
+              formControlName="subcategory">
+          </div>
+          <div class="mb-3">
+            <label for="brand" class="form-label">Brand</label>
+            <input type="text" class="form-control" id="brand" placeholder="add brand here" formControlName="brand">
+          </div>
+          <div class="mb-3">
+            <label for="color" class="form-label">Color</label>
+            <input type="text" class="form-control" id="color" placeholder="add color here" formControlName="color">
+          </div>
+          <div class="mb-3">
+            <label for="material" class="form-label">Material</label>
+            <input type="text" class="form-control" id="material" placeholder="add material here"
+              formControlName="material">
+          </div>
+          <div class="mb-3">
+            <label for="length" class="form-label">Length</label>
+            <input type="text" class="form-control" id="length" placeholder="add length here" formControlName="length">
+          </div>
+          <div class="mb-3">
+            <label for="width" class="form-label">Width</label>
+            <input type="text" class="form-control" id="width" placeholder="add width here" formControlName="width">
+          </div>
+          <div class="mb-3">
+            <label for="height" class="form-label">Height</label>
+            <input type="text" class="form-control" id="height" placeholder="add height here" formControlName="height">
+          </div>
+          <div class="mb-3">
+            <label for="count" class="form-label">Count</label>
+            <input type="text" class="form-control" id="count" placeholder="add count here" formControlName="count">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button data-bs-dismiss="modal" type="button" class="btn btn-secondary" #close>Cancel</button>
+          <button type="submit" class="btn btn-success" [disabled]="productForm.invalid">Save product</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <table class="table align-middle">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col" colspan="2">Actions</th>
+        <th scope="col">Product name</th>
+        <th scope="col">Image</th>
+        <th scope="col">Price</th>
+        <th scope="col">Sale</th>
+        <th scope="col">Category</th>
+        <th scope="col">Subcategory</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Color</th>
+        <th scope="col">Material</th>
+        <th scope="col">Length</th>
+        <th scope="col">Width</th>
+        <th scope="col">Height</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of adminProducts; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>
+          <button type="button" class="btn btn-outline-danger actionProduct" data-bs-toggle="modal"
+            data-bs-target="#addProduct" (click)="editProduct(item)">Edit</button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-outline-danger actionProduct"
+            (click)="deleteProduct(item)">Delete</button>
+        </td>
+        <td>{{ item.productName }}</td>
+        <td>
+          <img [src]="item.productImage" alt="" width="50px">
+        </td>
+        <td>{{ item.price }}<span> PLN</span></td>
+        <td>{{ item.sale }}</td>
+        <td>{{ item.category.categoryName }}</td>
+        <td>{{ item.subcategory }}</td>
+        <td>{{ item.brand }}</td>
+        <td>{{ item.color }}</td>
+        <td>{{ item.material }}</td>
+        <td>{{ item.length }}</td>
+        <td>{{ item.width }}</td>
+        <td>{{ item.height }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

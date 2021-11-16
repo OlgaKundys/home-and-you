@@ -1,47 +1,56 @@
 <div class="container">
-    <div class="row">
-        <div class="col-4">
-            <div class="card sale-text" [routerLink]="[ '/sale' ]" routerLinkActive="active">
-                <h2 class="text-center text-wrap" style="width: 6rem">SALE -30%</h2>
-            </div>
-        </div>
-        <div class="col-8">
-            <div class="card sale-image" [routerLink]="[ '/sale' ]" routerLinkActive="active">Sale picture</div>
-        </div>
-        <div class="col-12">
-            <div class="card living-room" [routerLink]="[ '/products/living-room' ]" routerLinkActive="active">Living room picture</div>
-        </div>
-        <div class="col-6">
-            <div class="card kitchen" [routerLink]="[ '/products/kitchen' ]" routerLinkActive="active">Kitchen picture</div>
-        </div>
-        <div class="col-6">
-            <div class="col-12">
-                <div class="card bathroom" [routerLink]="[ '/products/bathroom' ]" routerLinkActive="active">Bathroom picture</div>
-                <div class="card bedroom" [routerLink]="[ '/products/bedroom' ]" routerLinkActive="active">Bedroom picture</div>
-            </div>
-        </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card sale">
+        <img src="../../../assets/images/sale-info.jpg" alt="sale-info">
+      </div>
     </div>
+    <div class="col-12">
+      <div class="card living-room" [routerLink]="[ '/products/living-room' ]" routerLinkActive="active">
+        <img src="../../../assets/images/living_room.jpg" alt="living room">
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card kitchen" [routerLink]="[ '/products/kitchen' ]" routerLinkActive="active">
+        <img src="../../../assets/images/kitchen.jpg" alt="kitchen">
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="col-12">
+        <div class="card bathroom" [routerLink]="[ '/products/bathroom' ]" routerLinkActive="active">
+          <img src="../../../assets/images/bathroom.jpg" alt="bathroom">
+        </div>
+        <div class="card bedroom" [routerLink]="[ '/products/bedroom' ]" routerLinkActive="active">
+          <img src="../../../assets/images/bedroom.jpg" alt="bedroom">
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="brands container">
-    <div class="brands-text text-center" style="font-weight: bold;">WE (red-heart-icon) BRANDS</div>
-    <div class="brands-logos row justify-content-around">
-        <div class="card" style="width: 10rem;">
-            <img src="..." alt="logo-1">
-        </div>
-        <div class="card" style="width: 10rem;">
-            <img src="..." alt="logo-2">
-        </div>
-        <div class="card" style="width: 10rem;">
-            <img src="..." alt="logo-3">
-        </div>
-        <div class="card" style="width: 10rem;">
-            <img src="..." alt="logo-4">
-        </div>
-        <div class="card" style="width: 10rem;">
-            <img src="..." alt="logo-5">
-        </div>
-        <div class="card" style="width: 10rem;">
-            <img src="..." alt="logo-6">
-        </div>
+  <div class="brands-text text-center">WE <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#bb0029"
+      class="bi bi-heart-fill" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" /></svg>
+    BRANDS
+  </div>
+  <div class="brands-logos row justify-content-around">
+    <div class="card align-middle brand" style="width: 4rem;">
+      <img src="../../../assets/images/brands/alladin.webp" alt="alladin">
     </div>
+    <div class="card align-middle brand" style="width: 4rem;">
+      <img src="../../../assets/images/brands/bialetti.webp" alt="bialetti">
+    </div>
+    <div class="card align-middle brand" style="width: 4rem;">
+      <img src="../../../assets/images/brands/brait.webp" alt="brait">
+    </div>
+    <div class="card align-middle brand" style="width: 4rem;">
+      <img src="../../../assets/images/brands/contigo.webp" alt="contigo">
+    </div>
+    <div class="card align-middle brand" style="width: 4rem;">
+      <img src="../../../assets/images/brands/disney.webp" alt="disney">
+    </div>
+    <div class="card align-middle brand" style="width: 4rem;">
+      <img src="../../../assets/images/brands/gerlach.webp" alt="gerlach">
+    </div>
+  </div>
 </div>

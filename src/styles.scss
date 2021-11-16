@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('./app/shared/styles/_fonts.scss');
+@import '~ngx-toastr/toastr';
+
+body {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}

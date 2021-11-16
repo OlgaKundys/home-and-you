@@ -1,43 +1,44 @@
-// .card {
-//     border: none;
-// }
+@import url('../../shared/styles/_fonts.scss');
 
-.sale-text {
-    height: 90vh;
-    margin-top: 20px;
+.card {
+    border: none;
 }
 
-.sale-image {
-    height: 90vh;
+.sale {
     margin-top: 20px;
 }
 
 .living-room {
-    height: 90vh;
     margin-top: 20px;
 }
 
 .kitchen {
-    height: 90vh;
     margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 .bathroom {
-    height: 43.5vh;
-    margin-top: 20px;
-}
-
-.bedroom {
-    height: 43vh;
     margin-top: 20px;
 }
 
 .brands {
-    min-height: 30vh;
     margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.brands-text {
+    font-family: 'Montserrat-700',Arial, Helvetica, sans-serif;
+    font-size: 30px;
 }
 
 .brands-logos {
     margin-top: 50px;
+}
+
+.brand {
+    height: 40px;
+    opacity: 25%;
+}
+
+.brand:hover {
+    opacity: 100%;
 }

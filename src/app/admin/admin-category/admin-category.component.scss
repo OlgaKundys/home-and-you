@@ -1,0 +1,43 @@
+@import url('../../shared/styles/_fonts.scss');
+
+.addCategory {
+    margin-top: 20px;
+    background-color: #bb0029;
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.actionCategory {
+    outline-color: #bb0029;
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+table {
+    margin-top: 20px;
+}
+
+.modal-dialog, .modal-content, .modal-body , .modal-footer {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.modal-title {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+input {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+input::placeholder {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+button {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}

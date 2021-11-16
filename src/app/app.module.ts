@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -22,6 +25,18 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminSaleComponent } from './admin/admin-sale/admin-sale.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+
+import { environment } from 'src/environments/environment';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+
+import { ProfileDetailsComponent } from './pages/profile-details/profile-details.component';
+import { SigninComponent } from './pages/signin/signin.component';
+import { BlogComponent } from './pages/blog/blog.component';
+import { AdminBlogComponent } from './admin/admin-blog/admin-blog.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,14 +52,24 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
     AdminCategoryComponent,
     AdminProductsComponent,
     AdminSaleComponent,
-    AdminOrdersComponent
+    AdminOrdersComponent,
+    ProfileDetailsComponent,
+    SigninComponent,
+    BlogComponent,
+    AdminBlogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
+    provideAuth(() => getAuth()),
   ],
   providers: [],
   bootstrap: [AppComponent]
