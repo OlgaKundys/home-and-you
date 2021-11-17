@@ -1,86 +1,89 @@
 <div class="container" *ngIf="cart.length > 0">
+
   <div class="row">
     <div class="col-6">
-      <form [formGroup]="orderForm" (ngSubmit)="confirmOrder()">
-        <div class="mb-3 d-flex justify-content-start">
-          <div class="me-3">
-            <label for="firstName" class="form-label">First name</label>
-            <input type="text" class="form-control" id="firstName" formControlName="firstName">
+      <div class="card d-flex align-items-center">
+        <h5>Your information</h5>
+        <form [formGroup]="orderForm" (ngSubmit)="confirmOrder()">
+          <div class="mb-3 d-flex justify-content-start">
+            <div class="me-3">
+              <label for="firstName" class="form-label">First name</label>
+              <input type="text" class="form-control" id="firstName" formControlName="firstName">
+            </div>
+            <div>
+              <label for="lastName" class="form-label">Last name</label>
+              <input type="text" class="form-control" id="lastName" formControlName="lastName">
+            </div>
+          </div>
+          <div class="mb-3 d-flex justify-content-start">
+            <div class="me-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" formControlName="email">
+            </div>
+            <div>
+              <label for="phone" class="form-label">Phone</label>
+              <input type="text" class="form-control" id="phone" formControlName="phone">
+            </div>
+          </div>
+          <div class="mb-3" style="width: 70%;">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address" formControlName="address">
+          </div>
+          <div class="mb-3 d-flex justify-content-start">
+            <div class="me-3">
+              <label for="zipCode" class="form-label">Zip code</label>
+              <input type="text" class="form-control" id="zipCode" formControlName="zipCode">
+            </div>
+            <div>
+              <label for="city" class="form-label">City</label>
+              <input type="text" class="form-control" id="city" formControlName="city">
+            </div>
           </div>
           <div>
-            <label for="lastName" class="form-label">Last name</label>
-            <input type="text" class="form-control" id="lastName" formControlName="lastName">
+            <button type="submit" class="btn confirmOrder" [disabled]="orderForm.invalid">Confirm order</button>
           </div>
-        </div>
-        <div class="mb-3 d-flex justify-content-start">
-          <div class="me-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" formControlName="email">
-          </div>
-          <div>
-            <label for="phone" class="form-label">Phone</label>
-            <input type="text" class="form-control" id="phone" formControlName="phone">
-          </div>
-        </div>
-        <div class="mb-3" style="width: 70%;">
-          <label for="address" class="form-label">Address</label>
-          <input type="text" class="form-control" id="address" formControlName="address">
-        </div>
-        <div class="mb-3 d-flex justify-content-start">
-          <div class="me-3">
-            <label for="zipCode" class="form-label">Zip code</label>
-            <input type="text" class="form-control" id="zipCode" formControlName="zipCode">
-          </div>
-          <div>
-            <label for="city" class="form-label">City</label>
-            <input type="text" class="form-control" id="city" formControlName="city">
-          </div>
-        </div>
-        <div>
-          <button type="submit" class="btn confirmOrder" [disabled]="orderForm.invalid">Confirm order</button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
     <div class="col-6">
-      <table class="table table-borderless">
-        <thead>
-          <th>
-            <h5>summary</h5>
-          </th>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of cart">
-            <td style="width: 30%;">
-              <img [src]="item.productImage" width="120px">
-            </td>
-            <td>
-              <p class="prodName">{{ item.productName }}</p>
-              <p>
-                <span>Quantity: </span>
-                <button type="button" class="plus-minus" (click)="changeCount(item, false)">-</button>
-                <input class="quantity" type="text" readonly [value]="item.count">
-                <button type="button" class="plus-minus" (click)="changeCount(item, true)">+</button>
-              </p>
-              <p>
-                <span class="prodPrice">{{ item.price * item.count }} pln</span>
-              </p>
-              <p>
-                <button type="button" class="btn removeItem" (click)="removeProduct(item)">Remove</button>
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              <span class="totalPrice">total: </span>
-              <span class="totalPrice">{{ total }}</span>
-              <span class="totalPrice"> pln</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="card d-flex">
+        <h5 class="ms-5">Order summary</h5>
+        <table class="table table-borderless">
+          <tbody>
+            <tr *ngFor="let item of cart">
+              <td style="width: 30%;">
+                <img [src]="item.productImage" width="120px">
+              </td>
+              <td>
+                <p class="prodName">{{ item.productName }}</p>
+                <p>
+                  <span>Quantity: </span>
+                  <button type="button" class="plus-minus" (click)="changeCount(item, false)">-</button>
+                  <input class="quantity" type="text" readonly [value]="item.count">
+                  <button type="button" class="plus-minus" (click)="changeCount(item, true)">+</button>
+                </p>
+                <p>
+                  <span class="prodPrice">{{ item.price * item.count }} pln</span>
+                </p>
+                <p>
+                  <button type="button" class="btn removeItem" (click)="removeProduct(item)">Remove</button>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <span class="totalPrice">total: </span>
+                <span class="totalPrice">{{ total }}</span>
+                <span class="totalPrice"> pln</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
+
 <div class="container" *ngIf="cart.length === 0">
   <div class="row">
     <div class="col-12 emptyCart">
