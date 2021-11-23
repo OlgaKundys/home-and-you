@@ -1,7 +1,7 @@
 <header class="col-md-12 d-flex flex-wrap justify-content-center align-content-center align-items-center sticky-top">
   <nav class="navbar navbar-expand-lg navbar-light border-bottom">
     <div class="container-fluid">
-      <a class="navbar-brand" [routerLink]="[ '' ]">
+      <a class="navbar-brand" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="[ '' ]">
         <img src="../../../assets/images/home_you_logo.jpg" style="width: 160px;" alt="home-and-you-logo">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -11,37 +11,37 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="[ '/products/bedroom' ]" routerLinkActive="active">Bedroom</a>
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="[ '/products/bedroom' ]" routerLinkActive="active">Bedroom</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="[ '/products/living-room' ]" routerLinkActive="active">Living Room</a>
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="[ '/products/living-room' ]" routerLinkActive="active">Living Room</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="[ '/products/bathroom' ]" routerLinkActive="active">Bathroom</a>
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="[ '/products/bathroom' ]" routerLinkActive="active">Bathroom</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="[ '/products/kitchen' ]" routerLinkActive="active">Kitchen</a>
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="[ '/products/kitchen' ]" routerLinkActive="active">Kitchen</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="[ '/products/dining-room' ]" routerLinkActive="active">Dining Room</a>
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="[ '/products/dining-room' ]" routerLinkActive="active">Dining Room</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="[ '/products/accessories' ]" routerLinkActive="active">Accessories</a>
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="[ '/products/accessories' ]" routerLinkActive="active">Accessories</a>
           </li>
           <li class="nav-item" *ngIf="!isLoggedIn">
-            <a class="nav-link" [routerLink]="[ '/signin' ]" routerLinkActive="active">LOGIN</a>
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="[ '/signin' ]" routerLinkActive="active">LOGIN</a>
           </li>
           <li class="nav-item" *ngIf="isLoggedIn">
-            <a class="nav-link" [routerLink]="[ '' ]" (click)="signOut()">LOGOUT</a>
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="[ '' ]" (click)="signOut()">LOGOUT</a>
           </li>
           <li class="nav-item" *ngIf="isUser">
-            <a class="nav-link" [routerLink]="[ '/profile-details' ]" routerLinkActive="active">Account</a>
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="[ '/profile-details' ]" routerLinkActive="active">Account</a>
           </li>
           <li class="nav-item" *ngIf="isAdmin">
-            <a class="nav-link" [routerLink]="[ '/admin' ]" routerLinkActive="active">Admin</a>
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="[ '/admin' ]" routerLinkActive="active">Admin</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="[ '/checkout' ]" routerLinkActive="active">
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="[ '/checkout' ]" routerLinkActive="active">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#333333" class="bi bi-cart"
                 viewBox="0 0 16 16">
                 <path
@@ -50,7 +50,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="[ '/blog' ]" routerLinkActive="active">Blog</a>
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="[ '/blog' ]" routerLinkActive="active">Blog</a>
           </li>
         </ul>
       </div>

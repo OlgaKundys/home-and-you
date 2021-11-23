@@ -18,8 +18,6 @@ export class CategoryService {
     private firestore: Firestore
   ) { }
 
-    // on Firebase:
-
     getAllCategoriesFB(): Observable<DocumentData[]> {
       return collectionData(collection(this.firestore, "categories"), { idField: 'id' })
     }
@@ -39,27 +37,5 @@ export class CategoryService {
     deleteCategoryFB(id: string): Promise<void> {
       return deleteDoc(doc(this.firestore, "categories", id));
     }
-
-    // on db.json:
-
-    // getAllCategories(): Observable<ICategoryResponse[]> {
-    //   return this.http.get<ICategoryResponse[]>(this.api.category);
-    // }
-
-    // getOneCategory(id: string): Observable<ICategoryResponse> {
-    //   return this.http.get<ICategoryResponse>(`${this.api.category}/${id}`);
-    // }
-
-    // create(category: ICategoryResponse): Observable<void> {
-    //   return this.http.post<void>(this.api.category, category);
-    // }
-
-    // update(category: ICategoryResponse, id: string): Observable<void> {
-    //   return this.http.patch<void>(`${this.api.category}/${id}`, category);
-    // }
-
-    // delete(id: string): Observable<void> {
-    //   return this.http.delete<void>(`${this.api.category}/${id}`);
-    // }
 
 }

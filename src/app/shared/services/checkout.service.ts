@@ -20,8 +20,6 @@ export class CheckoutService {
     private firestore: Firestore
   ) { }
 
-    // on Firebase:
-
     getAllOrdersFB(): Observable<DocumentData[]> {
       return collectionData(collection(this.firestore, "orders"), { idField: 'id' })
     }
@@ -41,23 +39,5 @@ export class CheckoutService {
     deleteOrderFB(id: string): Promise<void> {
       return deleteDoc(doc(this.firestore, "orders", id));
     }
-
-    // on db.json:
-
-    // getAllOrders(): Observable<IOrderResponse[]> {
-    //   return this.http.get<IOrderResponse[]>(this.api.orders);
-    // }
-
-    // create(order: IOrderResponse): Observable<void> {
-    //   return this.http.post<void>(this.api.orders, order);
-    // }
-
-    // update(order: IOrderResponse, id: string): Observable<void> {
-    //   return this.http.patch<void>(`${this.api.orders}/${id}`, order);
-    // }
-
-    // delete(id: string): Observable<void> {
-    //   return this.http.delete<void>(`${this.api.orders}/${id}`);
-    // }
 
 }

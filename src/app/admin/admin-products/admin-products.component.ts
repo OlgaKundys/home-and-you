@@ -27,6 +27,7 @@ export class AdminProductsComponent implements OnInit {
   public editStatus = false;
   public productForm!: FormGroup;
   public isUploaded = false;
+  public searchTerm: string = '';
 
   constructor(
     private categoryService: CategoryService,
@@ -59,8 +60,6 @@ export class AdminProductsComponent implements OnInit {
       count: [null, Validators.required],
     });
   }
-
-  // on Firebase:
 
   loadCategories(): void {
     this.categoryService.getAllCategoriesFB().subscribe(data => {
@@ -183,57 +182,5 @@ export class AdminProductsComponent implements OnInit {
   controlValue(control: string): string {
     return this.productForm.get(control)?.value;
   }
-
-    // on db.json:
-
-  // loadCategories(): void {
-  //   this.categoryService.getAllCategories().subscribe(data => {
-  //     this.adminCategories = data;
-  //   }, error => {
-  //     console.log('load category error', error);
-  //   });
-  // }
-
-  // loadProducts(): void {
-  //   this.productService.getAllProducts().subscribe(data => {
-  //     this.adminProducts = data;     
-  //   }, error => {
-  //     console.log('load products error', error);
-  //   });
-  // }
-
-  // saveProduct(): void {
-  //   if(this.editStatus) {
-  //     this.productService.update(this.productForm.value, this.currentProductID).subscribe(() => {
-  //       this.close.nativeElement.click();
-  //       this.editStatus = false;
-  //       this.initProductForm();
-  //       this.loadProducts();
-  //       this.isUploaded = false;
-  //     }, error => {
-  //       console.log('update product error', error);
-  //     });
-  //   } else {
-  //     this.productService.create(this.productForm.value).subscribe(() => {
-  //       this.close.nativeElement.click();
-  //       this.initProductForm();
-  //       this.loadProducts();
-  //       this.isUploaded = false;
-  //     }, error => {
-  //       console.log('create product error', error);
-  //     });
-  //   }
-  // }
-
-  // deleteProduct(product: IProductResponse): void {
-  //   this.productService.delete(product.id).subscribe(() => {
-  //     this.loadProducts();
-  //     this.deleteImage(product.productImage);
-  //     this.toastr.success('Product deleted successfully!');
-  //   }, error => {
-  //     this.toastr.error('Delete product error!');
-  //     console.log('delete product error', error);
-  //   });
-  // }
 
 }

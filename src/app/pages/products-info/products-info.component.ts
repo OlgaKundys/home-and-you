@@ -40,8 +40,6 @@ export class ProductsInfoComponent implements OnInit {
     });
   }
 
-  // on Firebase:
-
   loadCategoryProducts(category: string): void {   
     this.productService.getCategoryFB(category).then(data => {
       this.allProducts = [];
@@ -92,22 +90,5 @@ export class ProductsInfoComponent implements OnInit {
     this.checkoutService.changeCart.next(true);
     this.toastr.success('Product added to cart');
   }
-
-  // on db.json:
-
-  // loadCurrentProduct(): void {
-  //   let id = this.activatedRoute.snapshot.paramMap.get('id');
-  //   this.productService.getOneProduct(id as string).subscribe(data => {
-  //     this.currentProductInfo = data;
-  //   });
-  // }
-
-  // loadProducts(): void {
-    // this.productService.getAllProducts().subscribe(data => {
-    //   this.allProducts = data;
-    // }, error => {
-    //   console.log('load products error', error);
-    // });
-  // }
 
 }

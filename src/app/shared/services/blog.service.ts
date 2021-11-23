@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { addDoc, collection, collectionData, deleteDoc, doc, DocumentData, DocumentReference, Firestore, getDocs, query, QuerySnapshot, setDoc, where } from "@angular/fire/firestore";
@@ -14,8 +13,6 @@ export class BlogService {
   constructor(
     private firestore: Firestore
   ) { }
-
-  // on Firebase:
 
   getAllBlogsFB(): Observable<DocumentData[]> {
     return collectionData(collection(this.firestore, "blog"), { idField: 'id' })

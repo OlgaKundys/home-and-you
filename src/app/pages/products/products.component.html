@@ -1,69 +1,23 @@
 <div class="container" style="margin-top: 20px;">
   <div class="row">
-    <!-- <div class="col-2">
-      <div class="flex-shrink-1 p-0 bg-white" style="width: 280px;">
-        <ul class="list-unstyled ps-0">
-          <button class="btn btn-toggle align-items-start collapsed title" data-bs-toggle="collapse"
-            data-bs-target="#categories-collapse" aria-expanded="true">
-            <p>categories</p>
-          </button>
-          <li class="mb-1">
-            <div class="collapse show" id="categories-collapse">
-              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
-                  <li><a href="#" class="link-dark rounded title-category">sale</a></li>
-                  <li><a href="#" class="link-dark rounded title-category">bedroom</a></li>
-                  <li><a href="#" class="link-dark rounded title-category">living room</a></li>
-                  <li><a href="#" class="link-dark rounded title-category">bathroom</a></li>
-                  <li><a href="#" class="link-dark rounded title-category">kitchen</a></li>
-                  <li><a href="#" class="link-dark rounded title-category">dining room</a></li>
-                  <li><a href="#" class="link-dark rounded title-category">accessories</a></li>
-                </ul>
-              </ul>
-            </div>
-          </li>
-        </ul>
-        <ul class="list-unstyled ps-0">
-          <button class="btn btn-toggle align-items-start collapsed title" data-bs-toggle="collapse"
-            data-bs-target="#color-collapse" aria-expanded="true">
-            <p>color</p>
-          </button>
-          <li class="mb-1">
-            <div class="collapse show" id="color-collapse">
-              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
-                  <li><a href="#" class="link-dark rounded title-subcategory">(color 1 here)</a></li>
-                  <li><a href="#" class="link-dark rounded title-subcategory">(color 2 here)</a></li>
-                  <li><a href="#" class="link-dark rounded title-subcategory">(color 3 here)</a></li>
-                  <li><a href="#" class="link-dark rounded title-subcategory">(color 4 here)</a></li>
-                  <li><a href="#" class="link-dark rounded title-subcategory">(color 5 here)</a></li>
-                </ul>
-              </ul>
-            </div>
-          </li>
-        </ul>
-        <ul class="list-unstyled ps-0">
-          <button class="btn btn-toggle align-items-start collapsed title" data-bs-toggle="collapse"
-            data-bs-target="#brand-collapse" aria-expanded="true">
-            <p>brand</p>
-          </button>
-          <li class="mb-1">
-            <div class="collapse show" id="brand-collapse">
-              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1">
-                  <li><a href="#" class="link-dark rounded title-subcategory">home&you</a></li>
-                  <li><a href="#" class="link-dark rounded title-subcategory">other</a></li>
-                </ul>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div> -->
     <div class="col-12">
       <div class="container">
+        <div class="row d-flex justify-content-between">
+          <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="search" style="margin-bottom: 20px;">
+          <!-- <select class="form-control" id="sorting" formControlName="sorting">
+              <option selected>sort</option>
+              <option>price low to high</option>
+              <option>price high to low</option>
+              <option>name A-Z</option>
+              <option>name Z-A</option>
+          </select> -->
+        </div>
         <div class="row row-cols-2 row-cols-md-3 g-4">
-          <div class="col" *ngFor="let item of allProducts">
+          <div class="col" *ngFor="let item of allProducts | searchProduct: searchTerm">
+          <!-- <div class="col" *ngFor="let item of allProducts | orderBy: 'price'"> -->
+          <!-- <div class="col" *ngFor="let item of allProducts | orderBy: '-price'"> -->
+          <!-- <div class="col" *ngFor="let item of allProducts | orderBy: 'productName'"> -->
+          <!-- <div class="col" *ngFor="let item of allProducts | orderBy: '-productName'"> -->
             <div class="card h-100 text-center">
               <img [src]="item.productImage" class="card-img-top">
               <div class="card-body">

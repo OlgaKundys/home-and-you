@@ -3,7 +3,9 @@ export interface IBlogRequest {
     blogTitle: string;
     publicationDate: string;
     blogCategory: string;
-    blogText: string;
+    blogDescription: string;
+    blogTextOne: string;
+    blogTextTwo: string;
 }
 
 export interface IBlogResponse {
@@ -12,5 +14,7 @@ export interface IBlogResponse {
     blogTitle: string;
     publicationDate: string;
     blogCategory: string;
-    blogText: string;
+    blogDescription: string;
+    blogTextOne: string;
+    blogTextTwo: string;
 }

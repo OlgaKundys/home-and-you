@@ -41,7 +41,7 @@ export class CheckoutComponent implements OnInit {
         address: this.loggedUser.address,
         zipCode: this.loggedUser.zipCode,
         city: this.loggedUser.city,
-        orderStatus: 'In progress'
+        orderStatus: 'In progress',
       })
     }
   }
@@ -55,7 +55,7 @@ export class CheckoutComponent implements OnInit {
       address: [null, Validators.required],
       zipCode: [null, Validators.required],
       city: [null, Validators.required],
-      orderStatus: ['In progress']
+      orderStatus: ['In progress'],
     })
   }
 
@@ -102,8 +102,6 @@ export class CheckoutComponent implements OnInit {
     this.checkoutService.changeCart.next(true);
   };
 
-  // on Firebase:
-
   confirmOrder(): void {
     const order = {
       ...this.orderForm.value,
@@ -122,18 +120,5 @@ export class CheckoutComponent implements OnInit {
       this.toastr.error('Create order error!');
     })
   };
-
-  // on db.json:
-
-  // confirmOrder(): void {
-  //   this.checkoutService.create(order).subscribe(() => {
-  //     localStorage.removeItem('cart');
-  //     this.checkoutService.changeCart.next(false);
-  //     this.loadCart();
-  //     this.toastr.success('We received your order!');
-  //   }, error => {
-  //     this.toastr.error('Create order error!');
-  //   })
-  // };
 
 }

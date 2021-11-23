@@ -18,6 +18,7 @@ import { ProfileGuard } from './shared/guards/profile.guard';
 import { SigninComponent } from './pages/signin/signin.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { AdminBlogComponent } from './admin/admin-blog/admin-blog.component';
+import { BlogInfoComponent } from './pages/blog-info/blog-info.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'products-info/:id', component: ProductsInfoComponent },
   { path: 'sale', component: SaleComponent },
   { path: 'blog', component: BlogComponent },
+  { path: 'blog-info/:id', component: BlogInfoComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'profile-details', component: ProfileDetailsComponent, canActivate: [ProfileGuard] },

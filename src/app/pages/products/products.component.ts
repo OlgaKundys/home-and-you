@@ -5,17 +5,18 @@ import { Subscription } from 'rxjs';
 import { IProductResponse } from 'src/app/shared/interfaces/product.interface';
 import { ProductService } from 'src/app/shared/services/product.service';
 
-
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
+
 export class ProductsComponent implements OnInit, OnDestroy {
 
   public allProducts: Array<IProductResponse> = [];
   public eventsSubscription!: Subscription;
   public currentCategoryName!: string;
+  public searchTerm: string = '';
 
   constructor(
     private productService: ProductService,
@@ -32,8 +33,6 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void { }
-
-  // on Firebase:
   
   loadCategoryProducts(category: string): void {
     this.productService.getCategoryFB(category).then(data => {
@@ -51,15 +50,5 @@ export class ProductsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.eventsSubscription.unsubscribe();
   }
-
-  // on db.json:
-  
-  // loadProducts(categoryName: string): void {   
-  //   this.productService.getCategory(categoryName).subscribe(data => {    
-  //     this.allProducts = data;
-  //   }, error => {
-  //     console.log('load products error', error);
-  //   });
-  // }
 
 }

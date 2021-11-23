@@ -1,6 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Storage, ref, deleteObject, uploadBytes, getDownloadURL } from '@angular/fire/storage';
 import { ICategoryResponse } from 'src/app/shared/interfaces/category.interface';
 import { CategoryService } from 'src/app/shared/services/category.service';
 import { ToastrService } from 'ngx-toastr';
@@ -37,8 +36,6 @@ export class AdminCategoryComponent implements OnInit {
       categoryName: [null, Validators.required],
     });
   }
-
-  // on Firebase:
 
   loadCategories(): void {
     this.categoryService.getAllCategoriesFB().subscribe(data => {
@@ -90,48 +87,5 @@ export class AdminCategoryComponent implements OnInit {
     this.editStatus = true;
     this.isUploaded = true;
   }
-
-  // on db.json:
-
-  // loadCategories(): void {
-  //   this.categoryService.getAllCategories().subscribe(data => {
-  //     this.adminCategories = data;
-  //   }, error => {
-  //     console.log('load category error', error);
-  //   });
-  // }
-
-  // saveCategory(): void {
-  //   if(this.editStatus) {
-  //     this.categoryService.update(this.categoryForm.value, this.currentCategoryID).subscribe(() => {
-  //       this.close.nativeElement.click();
-  //       this.editStatus = false;
-  //       this.initCategoryForm();
-  //       this.loadCategories();
-  //       this.isUploaded = false;
-  //     }, error => {
-  //       console.log('update category error', error);
-  //     });
-  //   } else {
-  //     this.categoryService.create(this.categoryForm.value).subscribe(() => {
-  //       this.close.nativeElement.click();
-  //       this.initCategoryForm();
-  //       this.loadCategories();
-  //       this.isUploaded = false;
-  //     }, error => {
-  //       console.log('create category error', error);
-  //     });
-  //   }
-  // }
-
-  // deleteCategory(category: ICategoryResponse): void {
-  //   this.categoryService.delete(category.id).subscribe(() => {
-  //     this.loadCategories();
-  //     this.toastr.success('Category deleted successfully!');
-  //   }, error => {
-  //     this.toastr.error('Delete category error!');
-  //     console.log('delete category error', error);
-  //   });
-  // }
 
 }

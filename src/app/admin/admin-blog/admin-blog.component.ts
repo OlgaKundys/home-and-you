@@ -40,7 +40,9 @@ export class AdminBlogComponent implements OnInit {
       blogTitle: [null, Validators.required],
       publicationDate: [null, Validators.required],
       blogCategory: [null, Validators.required],
-      blogText: [null, Validators.required],
+      blogDescription: [null, Validators.required],
+      blogTextOne: [null, Validators.required],
+      blogTextTwo: [null, Validators.required],
     });
   }
 
@@ -94,7 +96,9 @@ export class AdminBlogComponent implements OnInit {
       blogTitle: blog.blogTitle,
       publicationDate: blog.publicationDate,
       blogCategory: blog.blogCategory,
-      blogText: blog.blogText
+      blogDescription: blog.blogDescription,
+      blogTextOne: blog.blogTextOne,
+      blogTextTwo: blog.blogTextTwo
     });
     this.currentBlogID = blog.id;
     this.editStatus = true;

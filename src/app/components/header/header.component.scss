@@ -10,3 +10,10 @@ header {
     color: #bb0029 !important;
     font-family: 'Montserrat-700',Arial, Helvetica, sans-serif;
 }
+
+@media screen and (max-width: 992px) {
+    .navbar-toggler {
+        position: fixed;
+        right: 0;
+    }
+}

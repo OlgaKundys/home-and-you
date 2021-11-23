@@ -37,9 +37,19 @@
               formControlName="blogCategory">
           </div>
           <div class="mb-3">
-            <label for="blogText" class="form-label">Blog text</label>
-            <textarea class="form-control" id="blogText" placeholder="add blog text here" formControlName="blogText"
-              cols="30" rows="10"></textarea>
+            <label for="blogDescription" class="form-label">Blog description</label>
+            <textarea class="form-control" id="blogDescription" placeholder="add blog description here" formControlName="blogDescription"
+              cols="30" rows="5"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="blogTextOne" class="form-label">Blog first paragraph</label>
+            <textarea class="form-control" id="blogTextOne" placeholder="add first paragraph here" formControlName="blogTextOne"
+              cols="30" rows="5"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="blogTextTwo" class="form-label">Blog second paragraph</label>
+            <textarea class="form-control" id="blogTextTwo" placeholder="add second paragraph here" formControlName="blogTextTwo"
+              cols="30" rows="5"></textarea>
           </div>
         </div>
         <div class="modal-footer">
@@ -58,7 +68,9 @@
         <th scope="col">Image</th>
         <th scope="col">Publication date</th>
         <th scope="col">Related category</th>
-        <th scope="col">Blog text</th>
+        <th scope="col">Blog description</th>
+        <th scope="col">First paragraph</th>
+        <th scope="col">Second paragraph</th>
         <th scope="col" colspan="2">Actions</th>
       </tr>
     </thead>
@@ -71,7 +83,9 @@
         </td>
         <td>{{ item.publicationDate }}</td>
         <td>{{ item.blogCategory }}</td>
-        <td>{{ item.blogText }}</td>
+        <td>{{ item.blogDescription | slice:0:100 }} ...</td>
+        <td>{{ item.blogTextOne | slice:0:100 }} ...</td>
+        <td>{{ item.blogTextTwo | slice:0:100 }} ...</td>
         <td>
           <button type="button" class="btn btn-outline-danger actionBlog" data-bs-toggle="modal"
             data-bs-target="#addBlog" (click)="editBlog(item)">Edit</button>

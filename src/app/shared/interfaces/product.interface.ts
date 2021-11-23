@@ -4,9 +4,16 @@ export interface IProductRequest {
     category: ICategoryResponse;
     productName: string;
     productImage: string;
-    price: string;
+    price: any;
     sale: string;
-    count: number;
+    count: any;
+    brand: string;
+    color: string;
+    material: string;
+    length: string;
+    width: string;
+    height: string;
+    subcategory: string;
 }
 
 export interface IProductResponse {

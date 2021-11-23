@@ -82,3 +82,28 @@ img:hover {
 .card:hover > .more-info {
     display: block !important;
 }
+
+input {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    width: 20%;
+}
+
+input::placeholder {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+select {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    width: 20%;
+    height: 32px;
+    color: gray;
+}
+
+option {
+    font-family: 'Montserrat-400',Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #333333;
+}

@@ -23,6 +23,7 @@
     "bootstrap": "^5.0.0-beta3",
     "bootstrap-icons": "^1.6.1",
     "firebase": "^9.2.0",
+    "ngx-pipes": "^2.7.6",
     "ngx-toastr": "^14.1.4",
     "rxfire": "^6.0.3",
     "rxjs": "^6.6.7",

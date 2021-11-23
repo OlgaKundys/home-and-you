@@ -36,6 +36,11 @@ import { ProfileDetailsComponent } from './pages/profile-details/profile-details
 import { SigninComponent } from './pages/signin/signin.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { AdminBlogComponent } from './admin/admin-blog/admin-blog.component';
+import { BlogInfoComponent } from './pages/blog-info/blog-info.component';
+import { SearchProductPipe } from './shared/pipes/search-product.pipe';
+import { SearchOrderPipe } from './shared/pipes/search-order.pipe';
+
+import {NgPipesModule} from 'ngx-pipes';
 
 @NgModule({
   declarations: [
@@ -56,7 +61,10 @@ import { AdminBlogComponent } from './admin/admin-blog/admin-blog.component';
     ProfileDetailsComponent,
     SigninComponent,
     BlogComponent,
-    AdminBlogComponent
+    AdminBlogComponent,
+    BlogInfoComponent,
+    SearchProductPipe,
+    SearchOrderPipe
   ],
   imports: [
     BrowserModule,
@@ -70,6 +78,7 @@ import { AdminBlogComponent } from './admin/admin-blog/admin-blog.component';
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
     provideAuth(() => getAuth()),
+    NgPipesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

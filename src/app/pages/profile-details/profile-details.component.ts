@@ -1,14 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IOrderResponse } from 'src/app/shared/interfaces/order.interface';
 import { addDoc, collection, collectionData, deleteDoc, doc, DocumentData, DocumentReference, Firestore, getDocs, query, QuerySnapshot, setDoc, where } from "@angular/fire/firestore";
-import { DocumentSnapshot, getDoc, updateDoc } from '@firebase/firestore';
-import { Observable, Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
-import { ProductService } from 'src/app/shared/services/product.service';
-import { IProductResponse } from 'src/app/shared/interfaces/product.interface';
 import { IUserResponse } from 'src/app/shared/interfaces/user.interface';
-import { ActivatedRoute } from '@angular/router';
-import { CheckoutService } from 'src/app/shared/services/checkout.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -26,7 +19,6 @@ export class ProfileDetailsComponent implements OnInit {
     private fb: FormBuilder,
     private firestore: Firestore,
     private toastr: ToastrService,
-    private productService: ProductService,
   ) { }
 
   ngOnInit(): void {

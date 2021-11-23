@@ -20,8 +20,6 @@ export class ProductService {
     private firestore: Firestore
   ) { }
 
-    // on Firebase:
-
     getAllProductsFB(): Observable<DocumentData[]> {
       return collectionData(collection(this.firestore, "products"), { idField: 'id' })
     }
@@ -46,31 +44,5 @@ export class ProductService {
     deleteProductFB(product: IProductResponse): Promise<void> {
       return deleteDoc(doc(this.firestore, "products", product.id));
     }
-  
-    // on db.json:
-
-    // getAllProducts(): Observable<IProductResponse[]> {
-    //   return this.http.get<IProductResponse[]>(this.api.products);
-    // }
-
-    // getOneProduct(id: string): Observable<IProductResponse> {
-    //   return this.http.get<IProductResponse>(`${this.api.products}/${id}`);
-    // }
-
-    // getCategory(category: string): Observable<IProductResponse[]> {
-    //   return this.http.get<IProductResponse[]>(`${this.api.products}?category.categoryName=${category}`);
-    // }
-
-    // create(product: IProductRequest): Observable<void> {
-    //   return this.http.post<void>(this.api.products, product);
-    // }
-
-    // update(product: IProductResponse, id: string): Observable<void> {
-    //   return this.http.patch<void>(`${this.api.products}/${id}`, product);
-    // }
-
-    // delete(id: string): Observable<void> {
-    //   return this.http.delete<void>(`${this.api.products}/${id}`);
-    // }
   
 }

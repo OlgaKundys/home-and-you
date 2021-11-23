@@ -1,4 +1,6 @@
 <div class="container">
+  <input type="text" class="form-control" [(ngModel)]="searchTerm" placeholder="search order details" style="margin-top: 20px; margin-bottom: 20px;">
+
   <table class="table align-middle">
     <thead>
       <tr>
@@ -9,12 +11,13 @@
         <th scope="col">Address</th>
         <!-- <th scope="col">Order details</th> -->
         <th scope="col">Total price</th>
+        <!-- <th scope="col">Order date</th> -->
         <th scope="col">Status</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of adminOrders; index as i">
+      <tr *ngFor="let item of adminOrders | searchOrder: searchTerm; index as i">
         <td>{{ i + 1 }}</td>
         <td><span>{{ item.firstName }} </span><span>{{ item.lastName }}</span></td>
         <td>{{ item.email }}</td>
@@ -24,6 +27,7 @@
               <button type="button" class="btn btn-outline-danger actionProduct">Products</button>
             </td> -->
         <td><span>{{ item.totalPrice }}</span><span> PLN</span></td>
+        <!-- <td>{{ item.orderDate | date:'dd.MM.yyyy' }}</td> -->
         <td>{{ item.orderStatus }}</td>
         <td>
           <button type="button" data-bs-toggle="modal" data-bs-target="#editOrder"
@@ -45,8 +49,11 @@
       <div class="modal-body">
         <div class="mb-3">
           <label for="orderStatus" class="form-label">Change order status</label>
-          <input type="text" class="form-control" id="orderStatus" placeholder="add new order status here"
-            formControlName="orderStatus">
+          <select class="form-control" id="orderStatus" formControlName="orderStatus">
+              <option>In progress</option>
+              <option>Completed</option>
+              <option>Canceled</option>
+          </select>
         </div>
       </div>
       <div class="modal-footer">

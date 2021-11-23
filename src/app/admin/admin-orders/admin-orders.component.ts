@@ -17,6 +17,7 @@ export class AdminOrdersComponent implements OnInit {
   public currentOrderID!: any;
   public editStatus = false;
   public orderForm!: FormGroup;
+  public searchTerm: string = '';
 
   constructor(
     private checkoutService: CheckoutService,
@@ -40,11 +41,9 @@ export class AdminOrdersComponent implements OnInit {
       city: [null, Validators.required],
       orderStatus: [null, Validators.required],
       cart: [null],
-      totalPrice: [null]
+      totalPrice: [null],
     })
   }
-
-  // on Firebase:
 
   loadOrders(): void {
     this.checkoutService.getAllOrdersFB().subscribe(data => {
@@ -79,20 +78,10 @@ export class AdminOrdersComponent implements OnInit {
       address: order.address,
       zipCode: order.zipCode,
       city: order.city,
-      orderStatus: order.orderStatus
+      orderStatus: order.orderStatus,
     });
     this.currentOrderID = order.id
     this.editStatus = true;
   }
-
-  // on db.json:
-
-  // loadOrders(): void {
-  //   this.checkoutService.getAllOrders().subscribe(data => {
-  //     this.adminOrders = data;
-  //   }, error => {
-  //     console.log('Load orders error', error);
-  //   })
-  // }
 
 }
